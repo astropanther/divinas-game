@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: #0b4878;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0b4878 0%, #1374a8 50%, #0b4878 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.start-screen.hidden {
+    display: none;
+}
+
+.start-content {
+    background: #C0C0C0;
+    padding: 40px;
+    border: 4px solid #803a63;
+    box-shadow: 
+        0 0 0 4px #1374a8,
+        0 0 0 8px #803a63,
+        15px 15px 0 #803a63;
+    max-width: 700px;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.start-title {
+    font-size: 20px;
+    color: #803a63;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.start-message {
+    font-size: 10px;
+    color: #0b4878;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.start-message p {
+    margin-bottom: 15px;
+}
+
+.start-message strong {
+    color: #803a63;
+}
+
+.start-message p:last-of-type:not(.signature) {
+    color: #803a63;
+    text-align: center;
+    margin-top: 25px !important;
+    margin-bottom: 20px !important;
+}
+
+.signature {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 20px !important;
+}
+
+.start-button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    padding: 20px 40px;
+    background: #803a63;
+    color: #C0C0C0;
+    border: 4px solid #0b4878;
+    box-shadow: 
+        0 0 0 4px #C0C0C0,
+        0 0 0 8px #803a63,
+        5px 5px 0 #803a63;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.start-button:hover {
+    background: #0b4878;
+    transform: translate(2px, 2px);
+    box-shadow: 
+        0 0 0 4px #C0C0C0,
+        0 0 0 8px #803a63,
+        3px 3px 0 #803a63;
+}
+
+.start-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 
+        0 0 0 4px #C0C0C0,
+        0 0 0 8px #803a63,
+        1px 1px 0 #803a63;
+}
+
+.game-container {
+    position: relative;
+    background: #0b4878;
+    border: 4px solid #803a63;
+    box-shadow: 
+        0 0 0 4px #1374a8,
+        0 0 0 8px #803a63,
+        10px 10px 0 #803a63;
+    overflow: hidden;
+}
+
+.game-container.hidden {
+    display: none;
+}
+
+#gameCanvas {
+    display: block;
+    background: #0b4878;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.instructions {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #C0C0C0;
+    font-size: 10px;
+    text-shadow: 2px 2px 0 #0b4878;
+    z-index: 10;
+    line-height: 1.6;
+}
+
+#score {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #803a63;
+    text-shadow: 2px 2px 0 #0b4878;
+}
+
+.message-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.message-overlay.hidden {
+    display: none;
+}
+
+.message-content {
+    background: #803a63;
+    padding: 30px 40px;
+    border: 4px solid #0b4878;
+    box-shadow: 
+        0 0 0 4px #C0C0C0,
+        0 0 0 8px #0b4878,
+        8px 8px 0 #0b4878;
+    text-align: center;
+    animation: pixelPulse 0.3s ease-in-out;
+}
+
+@keyframes pixelPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.message-text {
+    font-size: 16px;
+    font-weight: normal;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+    white-space: nowrap;
+}

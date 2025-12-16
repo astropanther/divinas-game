@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Holiday Runner - Pixel Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="startScreen" class="start-screen">
+        <div class="start-content">
+            <h1 class="start-title">Happy Holidays DIVINAS!</h1>
+            <div class="start-message">
+                <p>Dear DIVINAS Team,</p>
+                <p>As we celebrate the holidays and welcome the new year, I want to take a moment to express my deepest gratitude for your incredible dedication and hard work throughout this year.</p>
+                <p>Your commitment to advancing inclusive human spaceflight research has been truly inspiring. Together, we achieved something remarkable: <strong>three research papers</strong> accepted for presentation at the International Astronautical Congress (IAC) 2025 in Sydney - one of the biggest space conferences in the world!</p>
+                <p>Thank you for being an outstanding team. Your passion for research, attention to detail, and collaborative spirit continue to drive DIVINAS forward.</p>
+                <p>Wishing you all a wonderful holiday season and an amazing new year!</p>
+                <p><strong>A fun game is waiting for you below - click the button to start playing!</strong></p>
+                <p class="signature">- Your Team Lead, Roxy Williams</p>
+            </div>
+            <button id="startButton" class="start-button">Start Game</button>
+        </div>
+    </div>
+
+    <div class="game-container hidden">
+        <canvas id="gameCanvas"></canvas>
+        <div id="messageOverlay" class="message-overlay hidden">
+            <div class="message-content">
+                <div id="messageText" class="message-text"></div>
+            </div>
+        </div>
+        <div class="instructions">
+            <p>Press SPACE or UP to jump</p>
+            <p id="score">Score: 0</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
