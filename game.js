@@ -1,8 +1,29 @@
 // Canvas setup
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 800;
-canvas.height = 400;
+
+// Responsive canvas sizing
+function resizeCanvas() {
+    const maxWidth = Math.min(800, window.innerWidth - 40);
+    const aspectRatio = 2; // width/height = 2:1
+    canvas.width = maxWidth;
+    canvas.height = maxWidth / aspectRatio;
+    
+    // Update game ground position
+    game.groundY = canvas.height - 50;
+    
+    // Reset player position if player has been initialized
+    if (player.originalY > 0) {
+        player.originalY = game.groundY - player.height;
+        if (game.isRunning) {
+            player.y = player.originalY;
+        }
+    }
+}
+
+// Initialize canvas size
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
 // Enable pixel-perfect rendering
 ctx.imageSmoothingEnabled = false;
@@ -576,6 +597,32 @@ document.addEventListener('keydown', (e) => {
         if (!game.isRunning) return;
         jump();
     }
+});
+
+// Touch/mobile support
+let touchStartY = 0;
+let touchStartTime = 0;
+
+// Prevent default touch behaviors that interfere with gameplay
+document.addEventListener('touchstart', (e) => {
+    // Allow touch on canvas and game container
+    if (e.target === canvas || e.target.closest('.game-container')) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+document.addEventListener('touchend', (e) => {
+    if (e.target === canvas || e.target.closest('.game-container')) {
+        e.preventDefault();
+        if (!game.isRunning) return;
+        jump();
+    }
+}, { passive: false });
+
+// Also support click/tap anywhere on canvas for jumping
+canvas.addEventListener('click', (e) => {
+    if (!game.isRunning) return;
+    jump();
 });
 
 // Start screen functionality

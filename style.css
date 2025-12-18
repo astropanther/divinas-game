@@ -17,6 +17,8 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
+    touch-action: manipulation; /* Better touch handling */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .start-screen {
@@ -47,6 +49,18 @@ body {
     max-width: 700px;
     text-align: center;
     animation: slideIn 0.5s ease-out;
+    margin: 20px;
+}
+
+@media (max-width: 600px) {
+    .start-content {
+        padding: 20px;
+        border-width: 3px;
+        box-shadow: 
+            0 0 0 3px #1374a8,
+            0 0 0 6px #803a63,
+            10px 10px 0 #803a63;
+    }
 }
 
 @keyframes slideIn {
@@ -67,12 +81,26 @@ body {
     line-height: 1.8;
 }
 
+@media (max-width: 600px) {
+    .start-title {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}
+
 .start-message {
     font-size: 10px;
     color: #0b4878;
     line-height: 1.8;
     margin-bottom: 30px;
     text-align: left;
+}
+
+@media (max-width: 600px) {
+    .start-message {
+        font-size: 8px;
+        margin-bottom: 20px;
+    }
 }
 
 .start-message p {
@@ -109,6 +137,20 @@ body {
         5px 5px 0 #803a63;
     cursor: pointer;
     transition: all 0.1s;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation; /* Better touch responsiveness */
+}
+
+@media (max-width: 600px) {
+    .start-button {
+        font-size: 10px;
+        padding: 15px 30px;
+        border-width: 3px;
+        box-shadow: 
+            0 0 0 3px #C0C0C0,
+            0 0 0 6px #803a63,
+            4px 4px 0 #803a63;
+    }
 }
 
 .start-button:hover {
@@ -137,6 +179,20 @@ body {
         0 0 0 8px #803a63,
         10px 10px 0 #803a63;
     overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    touch-action: none; /* Prevent scrolling on touch */
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        border-width: 3px;
+        box-shadow: 
+            0 0 0 3px #1374a8,
+            0 0 0 6px #803a63,
+            8px 8px 0 #803a63;
+    }
 }
 
 .game-container.hidden {
@@ -149,6 +205,11 @@ body {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    touch-action: none; /* Prevent scrolling on touch */
+    cursor: pointer; /* Show it's clickable */
 }
 
 .instructions {
@@ -162,11 +223,26 @@ body {
     line-height: 1.6;
 }
 
+@media (max-width: 600px) {
+    .instructions {
+        font-size: 8px;
+        top: 5px;
+        left: 5px;
+    }
+}
+
 #score {
     margin-top: 15px;
     font-size: 14px;
     color: #803a63;
     text-shadow: 2px 2px 0 #0b4878;
+}
+
+@media (max-width: 600px) {
+    #score {
+        font-size: 10px;
+        margin-top: 10px;
+    }
 }
 
 .message-overlay {
@@ -213,4 +289,17 @@ body {
     color: #fff;
     text-shadow: 2px 2px 0 #000;
     white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .message-text {
+        font-size: 12px;
+        white-space: normal;
+        padding: 0 10px;
+    }
+    
+    .message-content {
+        padding: 20px;
+        margin: 10px;
+    }
 }
